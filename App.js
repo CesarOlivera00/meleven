@@ -1,72 +1,88 @@
-import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity, FlatList, Modal } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState } from 'react';
+// Components
+import ModalMessage from './components/modal/ModalMessage';
+import Icon from './components/Icon';
+import HeaderMain from './components/HeaderMain';
+import IconButton from './components/formControls/IconButton';
+//Pages
+import Login from './pages/Login';
+import ListaProductos from './pages/ListaProductos';
+import DetalleProducto from './pages/DetalleProducto';
 
 export default function App() {
-    const [item, SetItem] = useState('');
-    const [itemList, SetItemList] = useState([]);
+    // Modal
     const [modalVisible, SetModalVisible] = useState(false);
-    const [itemSelected, SetItemSelected] = useState({});
+    const [modalProps, SetModalProps] = useState({});
+    // Login
+    const [userLogin, SetUserLogin] = useState(false);
+    // Productos
+    const [buyProduct, SetBuyProduct] = useState(false);
 
     const OnHandlerChangeItem = (text) => SetItem(text);
 
-    const OnHanlderAddItem = () => {
-        SetItemList(currentItems => [...currentItems, { id: itemList.length + 1, value: item }]);
+    // Modal functions
+    const OnHandlerModalAccept = (okModal) => {
+        SetModalVisible(false);
+        console.log("okModal:", okModal);
     }
 
-    const OnHandlerDeleteItem = id => {
-        SetItemList(currentItems => currentItems.filter(item => item.id !== id));
-        SetItemSelected({});
-        SetModalVisible(!modalVisible);
+    const OnHandlerModalCancel = () => {
+        SetModalVisible(false);
+    }
+    // End Modal funtions
+
+    // Login functions
+    function OnLoginSuccess(okLogin) {
+        if (okLogin){
+            console.log("OnLoginSuccess: El usuario se logeo correctamente!");
+            SetUserLogin(true);
+        }
+        else {
+            SetModalProps({
+                title: "Error",
+                message: "Error en usuario y/o contraseña!",
+                onHandlerModalAccept: OnHandlerModalAccept,
+                onHandlerModalCancel: null
+            });
+            SetModalVisible(true);
+        }
+    }
+    // En Login Functions
+
+    function OnBuyProducto(id) {
+        console.log("Producto seleccionado:", id);
+        SetBuyProduct(true);
     }
 
-    const OnHandlerModal = id => {
-        SetItemSelected(itemList.find(item => item.id === id));
-        SetModalVisible(!modalVisible);
+    function OnCancelBuyProducto(){
+        SetBuyProduct(false);
+    }
+
+    var content = <Login onLoginSuccess={OnLoginSuccess}></Login>
+
+    if (userLogin){
+        content = <ListaProductos OnBuyProducto={OnBuyProducto} />
+
+        if (buyProduct){
+            content = <DetalleProducto OnCancelBuy={OnCancelBuyProducto} />
+        }
     }
 
     return (
         <View style={Styles.container}>
-            <Modal
-                animationType="fade"
-                transparent={true}
-                visible={modalVisible}
+            <ModalMessage
+                modalVisible={modalVisible}
+                title={modalProps.title}
+                message={modalProps.message}
+                onHandlerModalAccept={modalProps.onHandlerModalAccept}
+                onHandlerModalCancel={modalProps.onHandlerModalCancel}
             >
-                <View style={Styles.modalBack}>
-                    <View style={Styles.modal}>
-                        <View>
-                            <Text style={Styles.modalTextTitle}>Mi Modal</Text>
-                        </View>
-                        <View style={Styles.modalBody}>
-                            <Text>¿Está seguro que desea borrar este Item?</Text>
-                            <Text>"{itemSelected.value}"</Text>
-                        </View>
-                        <View style={Styles.modalButton}>
-                            <Button title='Confirmar' onPress={() => { OnHandlerDeleteItem(itemSelected.id) }}></Button>
-                        </View>
-                    </View>
-                </View>
-            </Modal>
-            <View style={Styles.containerDataEnter}>
-                <TextInput placeholder='Texto Item' style={Styles.inputTextItem}
-                    onChangeText={OnHandlerChangeItem}
-                />
-            </View>
-            <TouchableOpacity style={Styles.buttonEnter} onPress={OnHanlderAddItem} ><Text style={{color: '#FFFFFF'}}>Agregar</Text></TouchableOpacity>
-            <FlatList
-                style={Styles.containerListItem}
-                data={itemList}
-                renderItem={
-                    data => (
-                        <TouchableOpacity style={Styles.item} onPress={() => {OnHandlerModal(data.item.id)}}>
-                            <View>
-                                <Text>Id: {data.item.id}, Value: "{data.item.value}"</Text>
-                            </View>
-                        </TouchableOpacity>
-                    )
-                }
-                showsVerticalScrollIndicator={false}
-                keyExtractor={item => item.id}
-            />
+            </ModalMessage>
+            
+            {userLogin ? <HeaderMain /> : null}
+
+            {content}
         </View>
     );
 }
@@ -74,66 +90,8 @@ export default function App() {
 const Styles = StyleSheet.create({
     container: {
         display: 'flex',
-        backgroundColor: '#fff',
-        alignItems: 'center',
+        backgroundColor: '#F2F3F4',
         height: '100%',
-        marginTop: 50
+        /*paddingTop: 35*/
     },
-    containerDataEnter: {
-        textAlign: 'left'  
-    },
-    inputTextItem: {
-        marginBottom: 10,
-        width: 300,
-        height: 50,
-        paddingLeft: 10,
-        borderColor: '#D5DBDB',
-        borderRadius: 15,
-        borderWidth: 2
-    },
-    buttonEnter: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 300,
-        height: 50,
-        backgroundColor: '#16A085',
-        borderColor: '#138D75',
-        borderRadius: 20,
-        borderWidth: 2
-    },
-    containerListItem: {
-        marginTop: 20
-    },
-    item: {
-        width: 300,
-        padding: 10,
-        paddingLeft: 15,
-        paddingRight: 15,
-        borderRadius: 5,
-        borderWidth: 2,
-        marginBottom: 10
-    },
-    modalBack: {
-        display: 'flex',
-        height: '100%',
-        width: '100%',
-        backgroundColor: "rgba(0,0,0,0.5)",
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    modal: {
-        backgroundColor: "white",
-        width: 320,
-        padding: 10,
-        borderRadius: 10
-    },
-    modalTextTitle: {
-        fontSize: 18
-    },
-    modalBody: {
-        margin: 10
-    },
-    modalButton: {
-        marginTop: 5
-    }
 });
