@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
 // Constants
 import Colors from '../constants/colors';
+import Fonts from '../constants/fonts';
 // Components
 import IconButton from './formControls/IconButton';
 
@@ -31,7 +32,7 @@ export default ItemCardProducto;
 
 const Styles = StyleSheet.create({
     containerCard: {
-        width: '50%',
+        width: Dimensions.get('window').width < 500 ? '50%' : '33%',
         padding: 10,
     },
     wrapperCard: {
@@ -74,7 +75,8 @@ const Styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         marginBottom: 5,
-        fontSize: 16,
+        fontSize: 14,
+        fontFamily: Fonts.fmRegular,
         textAlign: 'center'
     },
     precioProducto: {
@@ -84,6 +86,7 @@ const Styles = StyleSheet.create({
         marginBottom: 5,
         textAlign: 'center',
         fontSize: 15,
+        fontFamily: Fonts.fmRegular,
         color: Colors.priceItemProducto,
     },
     buttonComprar: {
@@ -95,7 +98,7 @@ const Styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         textAlign: 'center',
-        fontWeight: '600',
+        fontFamily: Fonts.fmSemiBold,
         color: '#000',
     },
 });

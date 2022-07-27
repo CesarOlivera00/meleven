@@ -1,7 +1,10 @@
 import React from "react";
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useState, useEffect } from 'react';
+// Constants
 import Colors from '../constants/colors';
+import Fonts from '../constants/fonts';
+// Components
 import Icon from '../components/Icon';
 
 const Login = (props) => {
@@ -84,7 +87,8 @@ const Styles = StyleSheet.create({
     titleLogin: {
         marginTop: 30,
         marginBottom: 20,
-        fontSize: 40
+        fontSize: 40,
+        //fontFamily: Fonts.fmRegular
     },
     wrapperInput: {
         width: '100%',
@@ -107,6 +111,7 @@ const Styles = StyleSheet.create({
         width: '100%',
         height: 50,
         paddingLeft: 10,
+        //fontFamily: Fonts.fmRegular
     },
     buttonLogin: {
         alignItems: 'center',

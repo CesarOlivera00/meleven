@@ -1,8 +1,6 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { useState, useEffect } from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 // Constants
-import Colors from '../../constants/colors';
 // Components
 import Icon from '../Icon';
 

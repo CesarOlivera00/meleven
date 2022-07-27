@@ -3,17 +3,24 @@ import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 // Constants
 import Colors from '../constants/colors';
+import Fonts from '../constants/fonts';
 // Components
 import IconButton from '../components/formControls/IconButton'
 
 const iconHeaderSize = 25;
 
-const DetalleProducto = (props) => {
+const DetalleProducto = ({route, navigation}) => {
+    console.log("Producto seleccionado:", route.params.id);
+
+    function ReturnListaProductos() {
+        navigation.navigate("ListaProductos");
+    }
+
     return (
         <ScrollView>
             <View style={Styles.containerItemDetail}>
                 <View style={Styles.headerDetail}>
-                    <IconButton iconName="ArrowLeft" iconHeight={iconHeaderSize} style={Styles.buttonHeader} onPress={props.OnCancelBuy} />
+                    <IconButton iconName="ArrowLeft" iconHeight={iconHeaderSize} style={Styles.buttonHeader} onPress={ReturnListaProductos} />
                     <Text style={Styles.titleDetail}>Detalles</Text>
                     <IconButton iconName="HeartRegular" iconHeight={iconHeaderSize} style={Styles.buttonHeader}  />
                 </View>
@@ -51,7 +58,8 @@ const Styles = StyleSheet.create({
         padding: 5
     },
     titleDetail: {
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: Fonts.fmRegular,
     },
     wrapperImage: {
         width: '100%',
@@ -61,16 +69,19 @@ const Styles = StyleSheet.create({
         width: '100%'
     },
     nombreProducto: {
-        fontSize: 24,
+        fontSize: 22,
+        fontFamily: Fonts.fmMedium,
         marginBottom: 10
     },
     precioProducto: {
         fontSize: 22,
+        fontFamily: Fonts.fmMedium,
         marginBottom: 10,
         color: Colors.buttonPrimaryBorder
     },
     descripcionProducto: {
         fontSize: 16,
+        fontFamily: Fonts.fmRegular,
         marginBottom: 10
     }
 });

@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 //Constants
 import Colors from '../constants/colors';
+import Fonts from '../constants/fonts';
 //Components
 import IconButton from './formControls/IconButton';
 
@@ -43,7 +44,8 @@ const Styles = StyleSheet.create({
     },
     logoHeader: {
         color: "#fff",
-        fontSize: 30
+        fontSize: 30,
+        fontFamily: Fonts.fmMedium
     },
     wrapperIconRight: {
         flexDirection: "row",
