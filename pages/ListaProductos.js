@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, View, ScrollView, Text } from 'react-native';
-import { useState, useEffect } from 'react';
+import { StyleSheet, View, ScrollView, Text, FlatList } from 'react-native';
+// Data
+import { Productos } from '../data/Productos';
 // Constants
 // Components
 import ItemCardProducto from '../components/ItemCardProducto';
@@ -8,20 +9,22 @@ import ItemCardProducto from '../components/ItemCardProducto';
 const ListaProductos = (props) => {
     var items = [];
 
-    function ShowDetailsProducto(key){
-        props.navigation.navigate('DetalleProducto', {id: key});
+    function ShowDetailsProducto(id_producto){
+        props.navigation.navigate('DetalleProducto', {id: id_producto});
     }
 
-    for (var i = 0; i < 10; i++){
-        items.push(<ItemCardProducto key={i} OnPressBuy={ShowDetailsProducto} id={i}></ItemCardProducto>);
+    const RenderItem = ({ item }) => {
+        return <ItemCardProducto item={item} OnPressBuy={ShowDetailsProducto} />
     }
 
     return (
-        <ScrollView>
-            <View style={Styles.containerListItems}>
-                {items}
-            </View>
-        </ScrollView>
+        <FlatList
+            data={Productos}
+            keyExtractor={item => item.id_producto}
+            renderItem={RenderItem}
+            numColumns='2'
+            style={StyleSheet.containerListItems}
+        />
     );
 }
 
@@ -30,7 +33,5 @@ export default ListaProductos;
 const Styles = StyleSheet.create({
     containerListItems: {
         width: '100%',
-        flexDirection: 'row',
-        flexWrap:'wrap'
     }
 });

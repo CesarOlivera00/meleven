@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 import { useState, useEffect } from 'react';
+// Data
+import { Productos } from '../data/Productos';
 // Constants
 import Colors from '../constants/colors';
 import Fonts from '../constants/fonts';
@@ -11,6 +13,8 @@ const iconHeaderSize = 25;
 
 const DetalleProducto = ({route, navigation}) => {
     console.log("Producto seleccionado:", route.params.id);
+    var id = route.params.id;
+    var producto = Productos.find(p => p.id_producto == id);
 
     function ReturnListaProductos() {
         navigation.navigate("ListaProductos");
@@ -27,15 +31,13 @@ const DetalleProducto = ({route, navigation}) => {
                 <View style={Styles.wrapperImage}>
                     <Image
                         style={Styles.imageProducto}
-                        source={ require('../assets/images/cover-login.jpg') }
+                        source={ producto.foto }
                     />
                 </View>
-                <Text style={Styles.nombreProducto}>Nombre Producto</Text>
-                <Text style={Styles.precioProducto}>$99999.99</Text>
+                <Text style={Styles.nombreProducto}>{producto.nombre_producto}</Text>
+                <Text style={Styles.precioProducto}>${producto.precio}</Text>
                 <Text style={Styles.descripcionProducto}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet facilisis eros, eget gravida erat. 
-                    Nulla aliquam imperdiet leo, in varius eros cursus ut. Pellentesque nulla purus, scelerisque volutpat iaculis quis, tristique eu odio. 
-                    Etiam iaculis, turpis quis aliquam feugiat, neque lacus eleifend tortor, quis sodales enim orci vitae eros.
+                    {producto.descripcion}
                 </Text>
             </View>
         </ScrollView>

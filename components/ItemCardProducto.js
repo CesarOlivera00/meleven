@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { useState } from 'react';
 // Constants
 import Colors from '../constants/colors';
 import Fonts from '../constants/fonts';
@@ -6,21 +7,32 @@ import Fonts from '../constants/fonts';
 import IconButton from './formControls/IconButton';
 
 const ItemCardProducto = (props) => {
+    const [itemfavorito, SetItemfavorito] = useState(false);
+
+    const { id_producto, nombre_producto, precio, foto } = props.item;
+
     return (
         <View style={Styles.containerCard}>
             <View style={Styles.wrapperCard}>
                 <View style={Styles.wrapperButtonFavorito}>
-                    <IconButton iconName="HeartRegular" iconHeight="20" iconWidth="20" style={Styles.buttonFavorito} />
+                    <IconButton
+                        style={Styles.buttonFavorito}
+                        iconName={itemfavorito ? "HeartSolid" : "HeartRegular"}
+                        iconHeight="20"
+                        iconWidth="20"
+                        iconFill={itemfavorito ? "#ff0000" : "#000"}
+                        onPress={() => {SetItemfavorito(true)}}
+                    />
                 </View>
                 <View style={Styles.wrapperImageProducto}>
                     <Image
                         style={Styles.imageProducto}
-                        source={ require('../assets/images/cover-login.jpg') }
+                        source={ foto }
                     />
                 </View>
-                <Text style={Styles.nombreProducto}>Nombre Producto</Text>
-                <Text style={Styles.precioProducto}>$99999,99</Text>
-                <TouchableOpacity style={Styles.buttonComprar} onPress={() => {props.OnPressBuy(props.id)}}>
+                <Text style={Styles.nombreProducto}>{nombre_producto}</Text>
+                <Text style={Styles.precioProducto}>${precio}</Text>
+                <TouchableOpacity style={Styles.buttonComprar} onPress={() => {props.OnPressBuy(id_producto)}}>
                     <Text style={Styles.buttonTextComprar}>Comprar</Text>
                 </TouchableOpacity>
             </View>
@@ -33,7 +45,7 @@ export default ItemCardProducto;
 const Styles = StyleSheet.create({
     containerCard: {
         width: Dimensions.get('window').width < 500 ? '50%' : '33%',
-        padding: 10,
+        padding: 5,
     },
     wrapperCard: {
         backgroundColor: '#fff',
