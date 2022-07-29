@@ -15,7 +15,7 @@ const TabNavigator = () => {
     return (
         <BottomTabs.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
             <BottomTabs.Screen name="Home" component={ShopNavigator} options={{ tabBarIcon: ({ focused }) => (<Icon name="House" height="20" fill={Colors.colorPrimaryLight} />) }} />
-            <BottomTabs.Screen name="Carrito" component={CartNavigator} options={{ tabBarIcon: ({ focused }) => (<Icon name="CartShopping" height="20" fill={Colors.colorPrimaryLight} />) }} />
+            <BottomTabs.Screen name="Carrito Compras" component={CartNavigator} options={{ tabBarIcon: ({ focused }) => (<Icon name="CartShopping" height="20" fill={Colors.colorPrimaryLight} />) }} />
         </BottomTabs.Navigator>
     );
 }
