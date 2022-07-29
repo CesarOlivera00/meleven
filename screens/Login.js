@@ -20,7 +20,7 @@ const Login = (props) => {
     }
 
     function ValidarUsuario(usuario, password) {
-        return (usuario == 'colivera' && password == '123456');
+        return (usuario == 'test' && password == 'test');
     }
 
     return (

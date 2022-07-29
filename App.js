@@ -7,12 +7,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Components
 import ModalMessage from './components/modal/ModalMessage';
 import HeaderMain from './components/HeaderMain';
+//Navigator
+import TabNavigator from './components/TabNavigator';
 //Pages
-import Login from './pages/Login';
-import ListaProductos from './pages/ListaProductos';
-import DetalleProducto from './pages/DetalleProducto';
-
-const Stack = createNativeStackNavigator();
+import Login from './screens/Login';
 
 export default function App() {
     const [loaded] = useFonts({
@@ -65,16 +63,6 @@ export default function App() {
         SetBuyProduct(false);
     }
 
-    var content = <Login onLoginSuccess={OnLoginSuccess}></Login>
-
-    if (userLogin){
-        content = <ListaProductos OnBuyProducto={OnBuyProducto} />
-
-        if (buyProduct){
-            content = <DetalleProducto OnCancelBuy={OnCancelBuyProducto} />
-        }
-    }
-
     return (
         <View style={Styles.container}>
             <ModalMessage
@@ -94,14 +82,12 @@ export default function App() {
                         <>
                             <HeaderMain />
                             <NavigationContainer>
-                                <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
-                                    <Stack.Screen name="ListaProductos" component={ListaProductos} />
-                                    <Stack.Screen name="DetalleProducto" component={DetalleProducto} />
-                                </Stack.Navigator>
+                                <TabNavigator />
                             </NavigationContainer>
                         </>
-                    
             }
+
+            
         </View>
     );
 }
