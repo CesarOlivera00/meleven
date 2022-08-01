@@ -1,23 +1,25 @@
 import React from "react";
 import { StyleSheet, View, ScrollView, Text, FlatList } from 'react-native';
 // Data
-import { Productos } from '../data/Productos';
+import { Cart } from '../data/Cart';
 // Constants
 // Components
-import ItemCardProducto from '../components/ItemCardProducto';
+import ItemCartProducto from '../components/ItemCartProducto';
 
 const Carrito = (props) => {
-    function ShowDetailsProducto(id_producto){
-        props.navigation.navigate('DetalleProducto', {id: id_producto});
-    }
-
     const RenderItem = ({ item }) => {
-        return <ItemCardProducto item={item} OnPressBuy={ShowDetailsProducto} />
+        return <ItemCartProducto item={item} />
     }
 
     return (
         <View style={Styles.containerListItems}>
             <Text>Carrito</Text>
+            <FlatList
+                data={Cart}
+                keyExtractor={item => item.id_producto}
+                renderItem={RenderItem}
+                numColumns="1"
+            />
         </View>
     );
 }
