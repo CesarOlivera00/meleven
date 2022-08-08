@@ -4,6 +4,8 @@ import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Provider } from 'react-redux';
+import store from './store'
 // Components
 import ModalMessage from './components/modal/ModalMessage';
 import HeaderMain from './components/HeaderMain';
@@ -64,31 +66,32 @@ export default function App() {
     }
 
     return (
-        <View style={Styles.container}>
-            <ModalMessage
-                modalVisible={modalVisible}
-                title={modalProps.title}
-                message={modalProps.message}
-                onHandlerModalAccept={modalProps.onHandlerModalAccept}
-                onHandlerModalCancel={modalProps.onHandlerModalCancel}
-            >
-            </ModalMessage>
+        <Provider store={store}>
+            <View style={Styles.container}>
+                <ModalMessage
+                    modalVisible={modalVisible}
+                    title={modalProps.title}
+                    message={modalProps.message}
+                    onHandlerModalAccept={modalProps.onHandlerModalAccept}
+                    onHandlerModalCancel={modalProps.onHandlerModalCancel}
+                >
+                </ModalMessage>
+                
+                {
+                    !userLogin
+                        ?
+                            <Login onLoginSuccess={OnLoginSuccess} />
+                        :
+                            <>
+                                <HeaderMain />
+                                <NavigationContainer>
+                                    <TabNavigator />
+                                </NavigationContainer>
+                            </>
+                }
+            </View>
+        </Provider>
             
-            {
-                !userLogin
-                    ?
-                        <Login onLoginSuccess={OnLoginSuccess} />
-                    :
-                        <>
-                            <HeaderMain />
-                            <NavigationContainer>
-                                <TabNavigator />
-                            </NavigationContainer>
-                        </>
-            }
-
-            
-        </View>
     );
 }
 
