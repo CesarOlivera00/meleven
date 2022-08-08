@@ -1,11 +1,19 @@
 import { StyleSheet, View, ScrollView, TouchableOpacity, Text, ImageBackground, Image } from "react-native";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+// Redux
+import { SelectCategoria } from "../store/actions/categorias.action";
 // Data
 // Fonts
 import Fonts from "../constants/fonts";
 
 const CategoriaScreen = (props) => {
+    const dispatch = useDispatch();
     const Categorias = useSelector(store => store.categorias.categorias);
+
+    const OnSelectCategoria = (id) => {
+        dispatch(SelectCategoria(id));
+        props.navigation.navigate("ListaProductos");
+    }
 
     return (
         <ScrollView>
@@ -14,7 +22,7 @@ const CategoriaScreen = (props) => {
                     Categorias.map(function(c) {
                         return (
                             <View style={Styles.wrapperCategoria} key={c.id_categoria}>
-                                <TouchableOpacity style={Styles.buttonCategoria}>
+                                <TouchableOpacity style={Styles.buttonCategoria} onPress={() => { OnSelectCategoria(c.id_categoria); }}>
                                     <ImageBackground source={c.backgroundImage} resizeMode="cover" style={Styles.imageBackgroundCategory} imageStyle={{ borderRadius: 20}}>
                                         <View style={Styles.wrapperTextCategory}>
                                             <Text style={Styles.textCategoria}>{c.texto_categoria}</Text>

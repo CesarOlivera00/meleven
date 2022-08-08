@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 // Data
 import { Productos } from '../data/Productos';
 // Constants
@@ -12,9 +13,8 @@ import IconButton from '../components/formControls/IconButton'
 const iconHeaderSize = 25;
 
 const DetalleProducto = ({route, navigation}) => {
-    console.log("Producto seleccionado:", route.params.id);
-    var id = route.params.id;
-    var producto = Productos.find(p => p.id_producto == id);
+    const Producto = useSelector(store => store.productos.selected);
+    console.log("Producto seleccionado:", Producto.id_producto);
 
     function ReturnListaProductos() {
         navigation.navigate("ListaProductos");
@@ -31,13 +31,13 @@ const DetalleProducto = ({route, navigation}) => {
                 <View style={Styles.wrapperImage}>
                     <Image
                         style={Styles.imageProducto}
-                        source={ producto.foto }
+                        source={ Producto.foto }
                     />
                 </View>
-                <Text style={Styles.nombreProducto}>{producto.nombre_producto}</Text>
-                <Text style={Styles.precioProducto}>${producto.precio}</Text>
+                <Text style={Styles.nombreProducto}>{Producto.nombre_producto}</Text>
+                <Text style={Styles.precioProducto}>${Producto.precio}</Text>
                 <Text style={Styles.descripcionProducto}>
-                    {producto.descripcion}
+                    {Producto.descripcion}
                 </Text>
             </View>
         </ScrollView>
