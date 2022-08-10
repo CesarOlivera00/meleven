@@ -12,10 +12,10 @@ const ListaProductos = (props) => {
     const Productos = useSelector(store => store.productos.filteredProductos);
     const Categoria = useSelector(store => store.categorias.selected);
 
-    console.log(Categoria);
-
     useEffect(() => {
+        console.log(Categoria.id_categoria);
         dispatch(FilteredProducto(Categoria.id_categoria));
+        console.log(Productos);
     }, []);
 
     function ShowDetailsProducto(id_producto){

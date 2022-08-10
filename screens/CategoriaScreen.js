@@ -2,6 +2,7 @@ import { StyleSheet, View, ScrollView, TouchableOpacity, Text, ImageBackground, 
 import { useSelector, useDispatch } from 'react-redux';
 // Redux
 import { SelectCategoria } from "../store/actions/categorias.action";
+import { FilteredProducto, SelectProducto } from "../store/actions/productos.action";
 // Data
 // Fonts
 import Fonts from "../constants/fonts";
