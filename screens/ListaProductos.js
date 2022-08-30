@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { StyleSheet, FlatList, Dimensions } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 // Redux
-import { FilteredProducto, SelectProducto } from "../store/actions/productos.action";
+import { FilteredProducto, SelectProducto } from "../Store/actions/productos.action";
 // Constants
 // Components
-import ItemCardProducto from '../components/ItemCardProducto';
+import ItemCardProducto from '../Components/ItemCardProducto';
 
 const ListaProductos = (props) => {
     const dispatch = useDispatch();

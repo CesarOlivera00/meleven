@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, View, ScrollView, Text, FlatList } from 'react-native';
 // Data
-import { Cart } from '../data/Cart';
+import { Cart } from '../Data/Cart';
 // Constants
 // Components
-import ItemCartProducto from '../components/ItemCartProducto';
+import ItemCartProducto from '../Components/ItemCartProducto';
 
 const Carrito = (props) => {
     const RenderItem = ({ item }) => {

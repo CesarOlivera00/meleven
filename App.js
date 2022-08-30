@@ -5,14 +5,24 @@ import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
-import store from './store'
+// DB
+import { init } from "./DBHelper"
+// Store
+import store from './Store'
 // Components
-import ModalMessage from './components/modal/ModalMessage';
-import HeaderMain from './components/HeaderMain';
+import ModalMessage from './Components/Modal/ModalMessage';
+import HeaderMain from './Components/HeaderMain';
 //Navigator
-import TabNavigator from './components/TabNavigator';
+import TabNavigator from './Components/TabNavigator';
 //Pages
-import Login from './screens/Login';
+import Login from './Screens/Login';
+
+init()
+    .then(() => console.log("Database Initialized"))
+    .catch((err) => {
+        console.log("Database fail connect");
+        console.log(err.message);
+    });
 
 export default function App() {
     const [loaded] = useFonts({
@@ -91,7 +101,6 @@ export default function App() {
                 }
             </View>
         </Provider>
-            
     );
 }
 

@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 //Constants
-import Colors from '../constants/colors';
-import Fonts from '../constants/fonts';
+import Colors from '../Constants/colors';
+import Fonts from '../Constants/fonts';
 //Components
-import IconButton from './formControls/IconButton';
+import IconButton from './FormControls/IconButton';
 
 const HeaderMain = () => {
     const menuIconSize = 20;

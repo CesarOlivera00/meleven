@@ -1,4 +1,4 @@
-import { Categorias } from '../../data/Categorias';
+import { Categorias } from '../../Data/Categorias';
 import { SELECT_CATEGORIA } from '../actions/categorias.action';
 
 const initialState = {
@@ -17,7 +17,6 @@ const CategoriaReducer = (state = initialState, action) => {
         default:
             return state;
     }
-    
 };
 
 export default CategoriaReducer;

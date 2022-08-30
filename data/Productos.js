@@ -5,7 +5,7 @@ export const Productos = [
         id_categoria: 2,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 3500.99,
-        foto: require("../fotos/productos/PROD-000000001.jpg")
+        foto: require("../Fotos/Productos/PROD-000000001.jpg")
     },
     {
         id_producto: 2,
@@ -13,7 +13,7 @@ export const Productos = [
         id_categoria: 2,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 5300.99,
-        foto: require("../fotos/productos/PROD-000000002.jpg")
+        foto: require("../Fotos/Productos/PROD-000000002.jpg")
     },
     {
         id_producto: 3,
@@ -21,7 +21,7 @@ export const Productos = [
         id_categoria: 2,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 2400.99,
-        foto: require("../fotos/productos/PROD-000000003.jpg")
+        foto: require("../Fotos/Productos/PROD-000000003.jpg")
     },
     {
         id_producto: 4,
@@ -29,7 +29,7 @@ export const Productos = [
         id_categoria: 2,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 2900.99,
-        foto: require("../fotos/productos/PROD-000000004.jpg")
+        foto: require("../Fotos/Productos/PROD-000000004.jpg")
     },
     {
         id_producto: 5,
@@ -37,7 +37,7 @@ export const Productos = [
         id_categoria: 2,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 5500.99,
-        foto: require("../fotos/productos/PROD-000000005.jpg")
+        foto: require("../Fotos/Productos/PROD-000000005.jpg")
     },
     {
         id_producto: 6,
@@ -45,7 +45,7 @@ export const Productos = [
         id_categoria: 3,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 3500.99,
-        foto: require("../fotos/productos/PROD-000000006.jpg")
+        foto: require("../Fotos/Productos/PROD-000000006.jpg")
     },
     {
         id_producto: 7,
@@ -53,7 +53,7 @@ export const Productos = [
         id_categoria: 3,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 31700.99,
-        foto: require("../fotos/productos/PROD-000000007.jpg")
+        foto: require("../Fotos/Productos/PROD-000000007.jpg")
     },
     {
         id_producto: 8,
@@ -61,7 +61,7 @@ export const Productos = [
         id_categoria: 3,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 35100.99,
-        foto: require("../fotos/productos/PROD-000000008.jpg")
+        foto: require("../Fotos/Productos/PROD-000000008.jpg")
     },
     {
         id_producto: 9,
@@ -69,7 +69,7 @@ export const Productos = [
         id_categoria: 3,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 4500.99,
-        foto: require("../fotos/productos/PROD-000000009.jpg")
+        foto: require("../Fotos/Productos/PROD-000000009.jpg")
     },
     {
         id_producto: 10,
@@ -77,7 +77,7 @@ export const Productos = [
         id_categoria: 3,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 12400.99,
-        foto: require("../fotos/productos/PROD-000000010.jpg")
+        foto: require("../Fotos/Productos/PROD-000000010.jpg")
     },
     {
         id_producto: 11,
@@ -85,6 +85,6 @@ export const Productos = [
         id_categoria: 3,
         descripcion: 'Este es un producto bastante buenardo.',
         precio: 36200.99,
-        foto: require("../fotos/productos/PROD-000000011.jpg")
+        foto: require("../Fotos/Productos/PROD-000000011.jpg")
     },
 ]

@@ -2,12 +2,12 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // Constants
-import Colors from '../constants/colors';
+import Colors from '../Constants/colors';
 // Components
-import Icon from '../components/Icon';
+import Icon from './Icon';
 // Navigation
-import ShopNavigator from '../navigation/ShopNavigator';
-import CartNavigator from '../navigation/CartNavigator';
+import ShopNavigator from '../Navigation/ShopNavigator';
+import CartNavigator from '../Navigation/CartNavigator';
 
 const BottomTabs = createBottomTabNavigator();
 

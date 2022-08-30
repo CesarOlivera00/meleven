@@ -3,12 +3,12 @@ import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 // Data
-import { Productos } from '../data/Productos';
+import { Productos } from '../Data/Productos';
 // Constants
-import Colors from '../constants/colors';
-import Fonts from '../constants/fonts';
+import Colors from '../Constants/colors';
+import Fonts from '../Constants/fonts';
 // Components
-import IconButton from '../components/formControls/IconButton'
+import IconButton from '../Components/FormControls/IconButton'
 
 const iconHeaderSize = 25;
 

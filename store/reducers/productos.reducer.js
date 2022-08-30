@@ -1,4 +1,4 @@
-import { Productos } from '../../data/Productos';
+import { Productos } from '../../Data/Productos';
 import { SELECT_PRODUCTO, FILTERED_PRODUCTO } from '../actions/productos.action';
 
 const initialState = {

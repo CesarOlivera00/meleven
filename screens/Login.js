@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 // Constants
-import Colors from '../constants/colors';
-import Fonts from '../constants/fonts';
+import Colors from '../Constants/colors';
+import Fonts from '../Constants/fonts';
 // Components
-import Icon from '../components/Icon';
+import Icon from '../Components/Icon';
 
 const Login = (props) => {
     const { onLoginSuccess } = props;

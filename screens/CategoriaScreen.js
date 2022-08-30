@@ -1,11 +1,11 @@
 import { StyleSheet, View, ScrollView, TouchableOpacity, Text, ImageBackground, Image } from "react-native";
 import { useSelector, useDispatch } from 'react-redux';
 // Redux
-import { SelectCategoria } from "../store/actions/categorias.action";
-import { FilteredProducto, SelectProducto } from "../store/actions/productos.action";
+import { SelectCategoria } from "../Store/actions/categorias.action";
+import { FilteredProducto, SelectProducto } from "../Store/actions/productos.action";
 // Data
 // Fonts
-import Fonts from "../constants/fonts";
+import Fonts from "../Constants/fonts";
 
 const CategoriaScreen = (props) => {
     const dispatch = useDispatch();

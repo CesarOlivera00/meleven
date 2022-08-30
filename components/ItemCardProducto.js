@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
 import { useState } from 'react';
 // Constants
-import Colors from '../constants/colors';
-import Fonts from '../constants/fonts';
+import Colors from '../Constants/colors';
+import Fonts from '../Constants/fonts';
 // Components
-import IconButton from './formControls/IconButton';
+import IconButton from './FormControls/IconButton';
 
 const ItemCardProducto = (props) => {
     const [itemfavorito, SetItemfavorito] = useState(false);
