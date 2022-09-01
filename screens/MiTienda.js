@@ -30,63 +30,63 @@ const MiTienda = (props) => {
     
     return (
         <View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='Nombre de la tienda'
                     style={Styles.inputForm}
                     onChangeText={OnHandlerChangeName} 
                 />
             </View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='Calle'
                     style={Styles.inputForm}
                     onChangeText={OnHandlerChangeTextoCalle} 
                 />
             </View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='Altura'
                     style={Styles.inputForm}
                     onChangeText={OnHandlerChangeAltura} 
                 />
             </View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='Localidad'
                     style={Styles.inputForm}
                     onChangeText={OnHandlerChangeTextoLocalidad} 
                 />
             </View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='Provincia'
                     style={Styles.inputForm}
                     onChangeText={OnHandlerChangeTextoProvincia} 
                 />
             </View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='CodigoPostal'
                     style={Styles.inputForm}
                     onChangeText={OnHandlerChangeCodigoPostal} 
                 />
             </View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='Local'
                     style={Styles.inputForm}
                     onChangeText={OnHandlerChangeLocal} 
                 />
             </View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='Piso'
                     style={Styles.inputForm}
                     onChangeText={OnHandlerChangePiso} 
                 />
             </View>
-            <View>
+            <View style={Styles.wrapperInput}>
                 <TextInput 
                     placeholder='Departamento'
                     style={Styles.inputForm}
@@ -94,6 +94,9 @@ const MiTienda = (props) => {
                 />
             </View>
             <LocationSelector />
+            <Button
+                title="Guardar"
+             />
         </View>
     );
 }
@@ -101,10 +104,32 @@ const MiTienda = (props) => {
 export default MiTienda;
 
 const Styles = StyleSheet.create({
+    wrapperInput: {
+        width: '100%',
+        alignItems: 'center',
+        paddingLeft: 20,
+        paddingRight: 20,
+    },
+    inputIcon: {
+        width: '100%',
+        flexDirection:'row',
+        alignItems: 'center',
+        paddingLeft: 10,
+        paddingRight: 10,
+        marginBottom: 10,
+        borderColor: '#D5DBDB',
+        borderRadius: 5,
+        borderWidth: 2,
+    },
     inputForm: {
         width: '100%',
         height: 50,
         paddingLeft: 10,
-        fontFamily: Fonts.fmRegular
+        paddingRight: 10,
+        marginBottom: 10,
+        borderColor: '#D5DBDB',
+        borderRadius: 5,
+        borderWidth: 2,
+        fontFamily: Fonts.fmRegular,
     }
 });
