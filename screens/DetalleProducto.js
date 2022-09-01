@@ -8,7 +8,8 @@ import { Productos } from '../Data/Productos';
 import Colors from '../Constants/colors';
 import Fonts from '../Constants/fonts';
 // Components
-import IconButton from '../Components/FormControls/IconButton'
+import IconButton from '../Components/FormControls/IconButton';
+import LocationSelector from '../Components/LocationSelector';
 
 const iconHeaderSize = 25;
 
@@ -31,7 +32,7 @@ const DetalleProducto = ({route, navigation}) => {
                 <View style={Styles.wrapperImage}>
                     <Image
                         style={Styles.imageProducto}
-                        source={ Producto.foto }
+                        source={Producto.foto}
                     />
                 </View>
                 <Text style={Styles.nombreProducto}>{Producto.nombre_producto}</Text>
@@ -40,6 +41,7 @@ const DetalleProducto = ({route, navigation}) => {
                     {Producto.descripcion}
                 </Text>
             </View>
+            <LocationSelector></LocationSelector>
         </ScrollView>
     );
 }

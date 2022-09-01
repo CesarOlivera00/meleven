@@ -2,16 +2,16 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Screens
-import Carrito from '../Screens/Carrito';
+import MiTienda from '../Screens/MiTienda';
 
 const Stack = createNativeStackNavigator();
 
-const CartNavigator = () => {
+const AdminNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Carrito" screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Carrito" component={Carrito} />
+        <Stack.Navigator initialRouteName="MiTienda" screenOptions={{headerShown: false}}>
+            <Stack.Screen name="MiTienda" component={MiTienda} />
         </Stack.Navigator>
     );
 }
 
-export default CartNavigator;
+export default AdminNavigator;

@@ -1,3 +1,4 @@
+/*
 import { SQLite } from "expo-sqlite";
 
 const db = SQLite.openDatabase("address.db");
@@ -37,3 +38,4 @@ export const insertAddress = (textoProvincia, textoLocalidad, textoCalle, altura
         });
     });
 }
+*/
