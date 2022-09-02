@@ -13,9 +13,7 @@ const ListaProductos = (props) => {
     const Categoria = useSelector(store => store.categorias.selected);
 
     useEffect(() => {
-        console.log(Categoria.id_categoria);
         dispatch(FilteredProducto(Categoria.id_categoria));
-        console.log(Productos);
     }, []);
 
     function ShowDetailsProducto(id_producto){

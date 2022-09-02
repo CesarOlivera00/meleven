@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 // DB
-//import { init } from "./DBHelper"
+import { Init } from "./DBHelper"
 // Store
 import store from './Store'
 // Components
@@ -16,14 +16,14 @@ import HeaderMain from './Components/HeaderMain';
 import TabNavigator from './Components/TabNavigator';
 //Pages
 import Login from './Screens/Login';
-/*
-init()
+
+Init()
     .then(() => console.log("Database Initialized"))
     .catch((err) => {
         console.log("Database fail connect");
         console.log(err.message);
     });
-*/
+
 
 export default function App() {
     const [loaded] = useFonts({

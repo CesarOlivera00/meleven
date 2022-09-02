@@ -9,7 +9,6 @@ import Colors from '../Constants/colors';
 import Fonts from '../Constants/fonts';
 // Components
 import IconButton from '../Components/FormControls/IconButton';
-import LocationSelector from '../Components/LocationSelector';
 
 const iconHeaderSize = 25;
 
@@ -41,7 +40,6 @@ const DetalleProducto = ({route, navigation}) => {
                     {Producto.descripcion}
                 </Text>
             </View>
-            <LocationSelector></LocationSelector>
         </ScrollView>
     );
 }
