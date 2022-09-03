@@ -29,10 +29,16 @@
         "CAMERA",
         "ACCESS_FINE_LOCATION",
         "WRITE_EXTERNAL_STORAGE"
-      ]
+      ],
+      "package": "com.colivera236.meleven"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ee8bae2e-a464-4683-aae5-b13bf962e333"
+      }
     }
   }
 }
