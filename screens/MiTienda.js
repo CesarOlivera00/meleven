@@ -24,6 +24,8 @@ const MiTienda = (props) => {
     const [local, SetLocal] = useState('');
     const [piso, SetPiso] = useState('');
     const [departamento, SetDepartamento] = useState('');
+    const [latitud, SetLatitud] = useState('');
+    const [longitud, SetLongitud] = useState('');
 
     function OnHandlerChangeName(value) { SetNombreTienda(value); }
     function OnHandlerChangeTextoCalle(value) { SetTextoCalle(value); }
@@ -64,10 +66,17 @@ const MiTienda = (props) => {
             });
     }
 
+    function OnLocation(coords) {
+        SetLatitud(coords.lat);
+        SetLongitud(coords.lng);
+
+        console.log(coords);
+    }
+
     async function OnClickGuardar() {
         //dispatch(InsertTienda(nombreTienda, textoProvincia, textoLocalidad, textoCalle, altura, 'imagen', 1, 2));
         if (!tiendaCargada){
-            await DB_InsertTienda(nombreTienda, altura, textoCalle, textoLocalidad, textoProvincia, codigoPostal, 1, 2, 'imagen')
+            await DB_InsertTienda(nombreTienda, altura, textoCalle, textoLocalidad, textoProvincia, codigoPostal, latitud, longitud, 'imagen')
                 .then(() => { 
                     console.log("Se inserto!");
                     SetTiendaCargada(true);
@@ -78,7 +87,7 @@ const MiTienda = (props) => {
                 });
         }
         else {
-            await DB_UpdateTienda(nombreTienda, altura, textoCalle, textoLocalidad, textoProvincia, codigoPostal, 1, 2, 'imagen')
+            await DB_UpdateTienda(nombreTienda, altura, textoCalle, textoLocalidad, textoProvincia, codigoPostal, latitud, longitud, 'imagen')
                 .then(() => console.log("Se actualizo!"))
                 .catch((err) => {
                     console.log("Error");
@@ -162,7 +171,7 @@ const MiTienda = (props) => {
                         value={departamento}
                     />
                 </View>
-                <LocationSelector />
+                <LocationSelector OnLocation={OnLocation} />
                 <Button
                     title="Guardar"
                     onPress={OnClickGuardar}

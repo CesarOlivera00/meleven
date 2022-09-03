@@ -31,6 +31,13 @@ const LocationSelector = (props) => {
             lat: location.coords.latitude,
             lng: location.coords.longitude
         });
+
+        if (props.OnLocation != null){
+            props.OnLocation({
+                lat: location.coords.latitude,
+                lng: location.coords.longitude
+            });
+        }
     }
 
     async function VerifyPermissions() {
